@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-3-30 14:48:00 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zxxz.ssh.entity.Admin" table="ADMIN">
+    <cache usage="read-write" /> <!-- 缓存 -->
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="password" type="java.lang.String">
+            <column name="PASSWORD" />
+        </property>
+        <property name="Status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+        <property name="group" type="java.lang.String">
+            <column name="ADMIN_GROUP" />
+        </property>
+    </class>
+</hibernate-mapping>
