@@ -119,13 +119,13 @@ public class MovieInfoServiceImpl implements MovieInfoService{
 		if (zone==null||zone.isEmpty()) {
 			zone="%";
 		}
-		if (class_==null||zone.isEmpty())
+		if (class_==null||class_.isEmpty())
 		{
 			class_="%";
 		}
-		params[0]=zone;
-		params[1]=class_;
-		
+		params[0]="%"+zone+"%";
+		params[1]="%"+class_+"%";
+		System.out.println(zone +"1+"+ class_);
 		return baseDAO.find("from MovieInfo m  Where m.zone like ? and m.class_ like ?  ORDER BY  m.showDate DESC",params,page,rows);
 	}
 
@@ -140,12 +140,12 @@ public class MovieInfoServiceImpl implements MovieInfoService{
 		if (zone==null||zone.isEmpty()) {
 			zone="%";
 		}
-		if (class_==null||zone.isEmpty())
+		if (class_==null||class_.isEmpty())
 		{
 			class_="%";
 		}
-		params[0]=zone;
-		params[1]=class_;
+		params[0]="%"+zone+"%";
+		params[1]="%"+class_+"%";
 		return baseDAO.count("select count(*) from MovieInfo m  Where m.zone like ? and m.class_ like ? ", params);
 	}
 	

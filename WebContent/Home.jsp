@@ -22,7 +22,7 @@
 <body>
 <section class="larry-wrapper">
     <!-- overview -->
-	<div class="row state-overview">
+<!--	<div class="row state-overview">
 		<div class="col-lg-3 col-sm-6">
 			<section class="panel">
 				<div class="symbol userblue"> <i class="iconpx-users"></i>
@@ -73,7 +73,7 @@
 				</div>
 			</section>
 		</div>
-	</div>
+	</div>-->
 	<!-- overview end -->
 	<div class="row">
 		<div class="col-lg-6">

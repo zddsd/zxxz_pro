@@ -2,6 +2,7 @@ package com.zxxz.ssh.action;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
@@ -364,8 +365,10 @@ public class MovieInfoUploadAction extends BaseAction implements RequestAware, M
     		  
     		  Integer rpage;
   	    	  double rows=6.0;
-  	    	
-
+  	    	zone=URLDecoder.decode(zone,"utf-8"); 
+  	    	class_=URLDecoder.decode(class_,"utf-8");
+  	    	System.out.println(zone +"+"+ class_);
+              
   	    	 rpage= (int) Math.ceil((movieInfoservice.movieListCount(zone,class_))/rows);
   	    	 System.out.println(rpage);
   	    	if(page<=rpage+1)
@@ -373,6 +376,9 @@ public class MovieInfoUploadAction extends BaseAction implements RequestAware, M
     		  request.put("movieList", movieInfoservice.movieList(zone, class_, page, (int)rows)) ;
     		  request.put("page", page);
     		  request.put("rpage", rpage);
+    		  
+    		  request.put("zone", zone);
+    		  request.put("class_", class_);
 	    	 }
     		  return "movieList";
     	  }

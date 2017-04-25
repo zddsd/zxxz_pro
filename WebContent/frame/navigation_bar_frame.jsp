@@ -74,6 +74,7 @@ body{
 					<ul class="nav navbar-nav naver-left">
 						<li class="active"><a href="movieinfo-movieIndex.do">首页<span class="sr-only">(current)</span></a></li>
 						<ul class="nav navbar-nav">
+						    <li><a href="movieinfo-movieList.do?page=1&zone=&class_=">电影列表</a></li>
 							<li><a href="news-newsMenu.do?page=1&zone=2">资讯频道</a></li>
 						<!--  <li><a href="#">即将上映 </a></li>   -->	
 						<!--  	<li><a href="#">电影榜单</a></li>  -->
@@ -81,9 +82,9 @@ body{
 								data-toggle="dropdown" role="button" aria-haspopup="true"
 								aria-expanded="false">电影榜单 <span class="caret"></span></a>
 								<ul class="dropdown-menu">
-									<li><a href="#">北美电影榜单</a></li>
+									<li><a href="movie_record_list.jsp">2017内地票房top20</a></li>
 									<li role="separator" class="divider"></li>
-									<li><a href="#">电影top10</a></li>
+									<li><a href="movie_record.jsp">内地票房总榜top20</a></li>
 
 								</ul></li>
 								

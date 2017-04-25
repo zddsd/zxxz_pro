@@ -63,7 +63,7 @@ h1 {
 					<label class="col-md-4 control-label" for="username">电影id</label>
 					<div class="col-md-4">
 						<input name="id" type="text" class="form-control" 
-							placeholder="20170412010101">
+							placeholder="4120008">
 					</div>
 				</div>
                 
@@ -71,7 +71,7 @@ h1 {
 					<label class="col-md-4 control-label" for="username">电影名字</label>
 					<div class="col-md-4">
 						<input name="name" type="text" class="form-control" 
-							placeholder="Titanic">
+							placeholder="金刚狼3">
 					</div>
 				</div>
 				
@@ -79,7 +79,7 @@ h1 {
 					<label class="col-md-4 control-label" for="username">译名</label>
 					<div class="col-md-4">
 						<input name="TName" type="text" class="form-control" 
-							placeholder="泰坦尼克号">
+							placeholder="logan">
 					</div>
 				</div>
 				

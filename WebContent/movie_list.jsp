@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ page import="java.io.*" %>
+<%@ page import="java.util.*" %>
+<%@ page import="java.net.*" %> 
      <%@ taglib prefix="s" uri="/struts-tags" %>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
@@ -59,8 +62,13 @@ body {
 </head>
 <body>
 	<!--插入navigation-->
-	<jsp:include page="frame/navigation_bar_frame.html" flush="true" />
-
+	<jsp:include page="frame/navigation_bar_frame.jsp" flush="true" />
+   <%
+                                request.setCharacterEncoding("utf-8");
+                                String zone=(String)request.getAttribute("zone");
+                                String class_=(String)request.getAttribute("class_");
+                               // out.print(zone);
+                                %>
 
 	<div class="container">
 		<div
@@ -81,29 +89,53 @@ body {
 										<strong>地区:</strong>
 									</button>
 								</div>
+								<div class="btn-group" role="group">
+								
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+									<button type="button" class="btn btn-default1">不限</button>
+									</a>
+								</div>
+      
+								<div class="btn-group" role="group">
+								
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("中国","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+									<button type="button" class="btn btn-default1">中国</button>
+									</a>
+								</div>
+								<div class="btn-group" role="group">
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("香港","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+									<button type="button" class="btn btn-default1">香港</button>
+									</a>
+								</div>
+								<div class="btn-group" role="group">
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("美国","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+									<button type="button" class="btn btn-default1">美国</button>
+									</a>
+								</div>
+								<div class="btn-group" role="group">
+										<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("欧洲","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+								
+									<button type="button" class="btn btn-default1">欧洲</button>
+									
+									</a>
+								</div>
+
+								<div class="btn-group" role="group">
+										<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("日本","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+								
+									<button type="button" class="btn btn-default1">日本</button>
+									
+									</a>
+								</div>
 
 
 								<div class="btn-group" role="group">
 								
-									<a href="#"></a><button type="button" class="btn btn-default1">大陆</button></a>
-								</div>
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">香港</button>
-								</div>
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">美国</button>
-								</div>
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">欧洲</button>
-								</div>
-
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">日本</button>
-								</div>
-
-
-								<div class="btn-group" role="group">
+										<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode("韩国","utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode(class_,"utf-8"))%>">
+								
 									<button type="button" class="btn btn-default1">韩国</button>
+									
+									</a>
 								</div>
 
 							</div>
@@ -120,35 +152,57 @@ body {
 										<strong>类型:</strong>
 									</button>
 								</div>
-
-
+                                
+           
 								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">喜剧</button>
+								
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("","utf-8"))%>">
+								
+									<button type="button" class="btn btn-default1">不限</button>
+									</a>
 								</div>
 								<div class="btn-group" role="group">
+								<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("爱情","utf-8"))%>">
 									<button type="button" class="btn btn-default1">爱情</button>
+								</a>
 								</div>
 								<div class="btn-group" role="group">
+								<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("动作","utf-8"))%>">
+								
 									<button type="button" class="btn btn-default1">动作</button>
+								</a>
 								</div>
 
 								<div class="btn-group" role="group">
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("科幻","utf-8"))%>">
+								
 									<button type="button" class="btn btn-default1">科幻</button>
+								</a>
 								</div>
 
 
 								<div class="btn-group" role="group">
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("惊悚","utf-8"))%>">
+								
 									<button type="button" class="btn btn-default1">惊悚</button>
+									
+									</a>
 								</div>
 
 								<div class="btn-group" role="group">
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("战争","utf-8"))%>">
+								
 									<button type="button" class="btn btn-default1">战争</button>
-
+                                     </a>
 								</div>
 
 								<div class="btn-group" role="group">
+								
+									<a href="movieinfo-movieList.do?page=1&zone=<%=URLEncoder.encode(URLEncoder.encode(zone,"utf-8"))%>&class_=<%=URLEncoder.encode(URLEncoder.encode("动画","utf-8"))%>">
+								
 									<button type="button" class="btn btn-default1">动画</button>
-
+                                     
+                                    </a>
 								</div>
 							</div>
 
@@ -163,29 +217,37 @@ body {
 					</ul>
 				</div>
          </div>
-          
+          	<s:if test="#request.movieList==null||#request.movieList.size()==0">
+					
+		           <div style="padding:270px;">
+				       未查询到相关结果
+				   </div>
+				  
+				</s:if>
+				<s:else>
+				
           <div class="col-sm-12">
 				<br>
 				<hr>
+			
 				
 				 <s:iterator value="#request.movieList">
-				<div class="col-sm-4">
+				<div class="col-sm-4" style="padding:20px">
 					<a href="movieinfo-show.do?id=${id}">	 <img class="img-responsive img-thumbnail"
 						src="${posterUrl}" alt="${name}">
-					<div style="width: 50%; float: left; text-align: left;">
+					<div style="width: 100%; float:center; text-align: left;">
 						<h4>${name}</h4></a>
 					</div>
-					<div style="width: 50%; float: right; text-align: right;">
-						<h4>8.0</h4>
-					</div>
-					<br>
+					
+					
 					<div style="width: 100%; float: left; text-align: left">演员:${actor}</div>
 				</div>
 			</s:iterator>
 				
-            </div>
+				
+            
                   
-
+ <div class="col-sm-12">
 
                <!--  分页显示结果：-->
 			
@@ -211,9 +273,9 @@ body {
 <nav aria-label="Page navigation">
   <ul class="pagination">
   
-  <li><a href="movieinfo-movieList.do?page=1">首页</a></li>
+  <li><a href="movieinfo-movieList.do?zone=${zone}&class_=${class_}&page=1">首页</a></li>
     <li>
-      <a href="movieinfo-movieList.do?page=<%
+      <a href="movieinfo-movieList.do?zone=${zone}&class_=${class_}&page=<%
       if(pageNo>1)
       {out.print(pageNo-1);
       }
@@ -228,7 +290,7 @@ body {
      <% for(int i=1;i<=rpage;i++)
         {
           %>
-           <li><a href="movieinfo-movieList.do?page=<%=i%>">
+           <li><a href="movieinfo-movieList.do?zone=${zone}&class_=${class_}&page=<%=i%>">
            <%=i%>
            </a></li>
           <% 
@@ -238,7 +300,7 @@ body {
       %>
   
     <li>
-      <a href="movieinfo-movieList.do?page=<%
+      <a href="movieinfo-movieList.do?zone=${zone}&class_=${class_}&page=<%
       if(pageNo<rpage)
       {out.print(pageNo+1);
       }
@@ -251,13 +313,13 @@ body {
       </a>
     </li>
     
-  <!--   <li><a href="movieinfo-movieList.do?page=<s:property value="#request.rpage"/>">末页</a></li> --> 
-   <li><a href="movieinfo-movieList.do?page=<%=rpage%>">末页</a></li>
+  <!--   <li><a href="movieinfo-movieList.do?zone=${zone}&class_=${class_}&page=<s:property value="#request.rpage"/>">末页</a></li> --> 
+   <li><a href="movieinfo-movieList.do?zone=${zone}&class_=${class_}&page=<%=rpage%>">末页</a></li>
   </ul>
 </nav>
-
-
-
+</div>
+</s:else>
+</div>
 			</div>
 		</div>
 
@@ -266,7 +328,7 @@ body {
 
 
 		
-	</div>
+	
 
 	<!--插入footer-->
 	<jsp:include page="frame/footer_frame.html" flush="true"></jsp:include>

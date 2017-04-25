@@ -69,7 +69,7 @@
 		
 			<ol class="breadcrumb">
 				<li><a href="movieinfo-movieIndex.do">首页</a></li>
-				<li><a href="movieinfo-movieList.do?page=1">电影列表</a></li>
+				<li><a href="movieinfo-movieList.do?page=1&zone=&class_=">电影列表</a></li>
 				<li class="active"><s:property value="#request.movieinfo.name"/></li>
 			</ol>
            
