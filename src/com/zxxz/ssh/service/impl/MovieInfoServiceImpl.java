@@ -102,7 +102,52 @@ public class MovieInfoServiceImpl implements MovieInfoService{
 	    return movieinfoDao.find2();
 	
 	}
+     
+	/**
+	 * 前提是
+	 * @param page
+	 * @param rows
+	 * @return
+	 */
+	@Override
+	public List<MovieInfo> movieList(String zone ,String class_,Integer page,Integer rows) {
+		// TODO Auto-generated method stub
+		Object[] params;//定义
+		params = new Object[2];//构建,这时只有定义的4个引用，没有实际对象
+		params[0] = new Object();//初始化
+		params[1]=new Object();
+		if (zone==null||zone.isEmpty()) {
+			zone="%";
+		}
+		if (class_==null||zone.isEmpty())
+		{
+			class_="%";
+		}
+		params[0]=zone;
+		params[1]=class_;
+		
+		return baseDAO.find("from MovieInfo m  Where m.zone like ? and m.class_ like ?  ORDER BY  m.showDate DESC",params,page,rows);
+	}
 
+	@Override
+	public long movieListCount(String zone, String class_) {
+		// TODO Auto-generated method stub
+		
+		Object[] params;//定义
+		params = new Object[2];//构建,这时只有定义的4个引用，没有实际对象
+		params[0] = new Object();//初始化
+		params[1]=new Object();
+		if (zone==null||zone.isEmpty()) {
+			zone="%";
+		}
+		if (class_==null||zone.isEmpty())
+		{
+			class_="%";
+		}
+		params[0]=zone;
+		params[1]=class_;
+		return baseDAO.count("select count(*) from MovieInfo m  Where m.zone like ? and m.class_ like ? ", params);
+	}
 	
 	
 	

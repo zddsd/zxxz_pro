@@ -69,7 +69,7 @@
 		
 			<ol class="breadcrumb">
 				<li><a href="movieinfo-movieIndex.do">首页</a></li>
-				<li><a href="movie_list.jsp">电影列表</a></li>
+				<li><a href="movieinfo-movieList.do?page=1">电影列表</a></li>
 				<li class="active"><s:property value="#request.movieinfo.name"/></li>
 			</ol>
            
@@ -144,18 +144,18 @@
 				    	 if(p!=null&&p!="")
 						 {
 						
-						
+				    		 return true;
 						 }
 						 else{ alert("请您先登陆，然后进行操作");
 						  return false;
 						 }
-				    	 return true;
+				    	
 				    	
 				    }
 				    
 				    </script>
 				    <s:if test="#session.loginusername == null || #session.loginusername.size() == 0">
-				     <form action="star-save.do" name="star"  onsubmit="isloginstar()" method="post">
+				     <form action="star-save.do" name="star"  onsubmit="return isloginstar()" method="post">
 				              <!-- userid contextid class -->
 				               <input name="userid" id="userid1" type="hidden" value="<s:property value="#session.loginuserId"/>"> 
 				                <input name="contextid" type="hidden" value="<s:property value="#request.id"/>"> 
@@ -167,7 +167,7 @@
 				    </s:if>
 				    <s:else>
 				    <s:if test='#request.isstar=="1"'>
-				       <form action="star-save.do" name="star"  onsubmit="isloginstar()" method="post">
+				       <form action="star-save.do" name="star"  onsubmit="return isloginstar()" method="post">
 				              <!-- userid contextid class -->
 				               <input name="userid" id="userid1" type="hidden" value="<s:property value="#session.loginuserId"/>"> 
 				                <input name="contextid" type="hidden" value="<s:property value="#request.id"/>"> 

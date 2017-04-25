@@ -114,6 +114,7 @@
 		    <result name="show">/movie_context_view.jsp</result>
 		    <result name="moviemenu">/movie_context_view.jsp</result>
 		    <result name="match">/movie_search_result.jsp</result>
+		    <result name="movieList">/movie_list.jsp</result>
 		     <result name="movieIndex">/user_index.jsp</result>
 		    <result name="success" type="redirect">/movieinfo_save_success.jsp</result>
 		    <param name="contentType">application/octet-stream;charset=ISO8859-1</param>

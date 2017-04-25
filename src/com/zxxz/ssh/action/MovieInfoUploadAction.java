@@ -359,7 +359,31 @@ public class MovieInfoUploadAction extends BaseAction implements RequestAware, M
 			}
 			return "failure";
 		}
-      
+      public String movieList(){
+    	  try{
+    		  
+    		  Integer rpage;
+  	    	  double rows=6.0;
+  	    	
+
+  	    	 rpage= (int) Math.ceil((movieInfoservice.movieListCount(zone,class_))/rows);
+  	    	 System.out.println(rpage);
+  	    	if(page<=rpage+1)
+	    	 {
+    		  request.put("movieList", movieInfoservice.movieList(zone, class_, page, (int)rows)) ;
+    		  request.put("page", page);
+    		  request.put("rpage", rpage);
+	    	 }
+    		  return "movieList";
+    	  }
+    	  catch (Exception e) {
+			// TODO: handle exception
+    		  e.printStackTrace();
+    		  System.out.println(e);
+		}
+    	  
+    	  return "failure";
+      }
 
 		
 	@Override

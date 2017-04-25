@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
+     <%@ taglib prefix="s" uri="/struts-tags" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -81,7 +84,8 @@ body {
 
 
 								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">大陆</button>
+								
+									<a href="#"></a><button type="button" class="btn btn-default1">大陆</button></a>
 								</div>
 								<div class="btn-group" role="group">
 									<button type="button" class="btn btn-default1">香港</button>
@@ -102,10 +106,6 @@ body {
 									<button type="button" class="btn btn-default1">韩国</button>
 								</div>
 
-								<div class="btn-group" role="group">
-									<button type="button" class="btn btn-default1">其他</button>
-
-								</div>
 							</div>
 
 						</li>
@@ -156,45 +156,10 @@ body {
 
 						</li>
 
-						<!--           <li class="list-group-item">
-         <div class="btn-group btn-group-justified" role="group" aria-label="...">
-           <div class="btn-group" role="group">
-              <button type="button" class="btn btn-default1" disabled="disabled"><strong>时间:</strong></button>
-    </div>
 
-    <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">2017</button>
-  </div>
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">2016</button>
-  </div>
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">2015</button>
-  </div>
-
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">2014-2011</button>
-  </div>
-
-
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">2010-2000</button>
-  </div>
-
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">90年代</button>
-
-  </div>
-
-  <div class="btn-group" role="group">
-   <button type="button" class="btn btn-default1">更早</button>
-
-  </div>
-  </div>
-
-
-
-       </li>-->
+       
+       
+       
 					</ul>
 				</div>
          </div>
@@ -202,39 +167,94 @@ body {
           <div class="col-sm-12">
 				<br>
 				<hr>
-				<div class="col-sm-3">
-					<a href="#"> <img class="img-responsive img-thumbnail"
-						src="image/jinganglang3.jpg" alt="金刚狼3"></a>
+				
+				 <s:iterator value="#request.movieList">
+				<div class="col-sm-4">
+					<a href="movieinfo-show.do?id=${id}">	 <img class="img-responsive img-thumbnail"
+						src="${posterUrl}" alt="${name}">
 					<div style="width: 50%; float: left; text-align: left;">
-						<h4>金刚狼3</h4>
+						<h4>${name}</h4></a>
 					</div>
 					<div style="width: 50%; float: right; text-align: right;">
 						<h4>8.0</h4>
 					</div>
 					<br>
-					<div style="width: 100%; float: left; text-align: left">主演：休
-						杰克曼</div>
+					<div style="width: 100%; float: left; text-align: left">演员:${actor}</div>
 				</div>
+			</s:iterator>
 				
             </div>
                   
 
 
                <!--  分页显示结果：-->
-		<nav aria-label="Page navigation">
-			<ul class="pagination">
-				<li><a href="#" aria-label="Previous"> <span
-						aria-hidden="true">&laquo;</span>
-				</a></li>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-				</a></li>
-			</ul>
-		</nav>
+			
+	   <% 
+	   
+	  
+	   Object a=request.getAttribute("page");
+	   Object b=request.getAttribute("rpage");
+	   int pageNo=1;
+	    int rpage=1;
+	   if(a!=null&&b!=null)
+	   {
+             pageNo=Integer.parseInt(a.toString());
+      		rpage=Integer.parseInt(b.toString());
+             //out.print(pageNo);
+		}	
+
+	   
+	 
+	   %>
+        
+        
+<nav aria-label="Page navigation">
+  <ul class="pagination">
+  
+  <li><a href="movieinfo-movieList.do?page=1">首页</a></li>
+    <li>
+      <a href="movieinfo-movieList.do?page=<%
+      if(pageNo>1)
+      {out.print(pageNo-1);
+      }
+      else if(pageNo<=1)
+      {
+      out.print(1);
+      }
+      %>" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+      </a>
+    </li>
+     <% for(int i=1;i<=rpage;i++)
+        {
+          %>
+           <li><a href="movieinfo-movieList.do?page=<%=i%>">
+           <%=i%>
+           </a></li>
+          <% 
+        }
+     
+     
+      %>
+  
+    <li>
+      <a href="movieinfo-movieList.do?page=<%
+      if(pageNo<rpage)
+      {out.print(pageNo+1);
+      }
+      else if(pageNo==rpage)
+      {
+      out.print(rpage);
+      }
+      %>" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+      </a>
+    </li>
+    
+  <!--   <li><a href="movieinfo-movieList.do?page=<s:property value="#request.rpage"/>">末页</a></li> --> 
+   <li><a href="movieinfo-movieList.do?page=<%=rpage%>">末页</a></li>
+  </ul>
+</nav>
 
 
 
