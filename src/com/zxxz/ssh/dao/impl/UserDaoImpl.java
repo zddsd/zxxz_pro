@@ -3,6 +3,7 @@ package com.zxxz.ssh.dao.impl;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.zxxz.ssh.dao.UserDao;
@@ -16,19 +17,19 @@ public class UserDaoImpl implements UserDao {
 	public SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
-
+	@Autowired
 	public void setSessionFactory(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
     
 	
-	public Session getCurrentSession() {
+	private Session getCurrentSession() {
 		return sessionFactory.getCurrentSession();
 	}
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		String hql = "DELETE FROM User e WHERE e.id = ?";
+		String hql = "DELETE FROM Star e WHERE e.star_id = ?";
 		getCurrentSession().createQuery(hql).setInteger(0, id).executeUpdate();
 	}
 

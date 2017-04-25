@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-	    <%@ taglib prefix="s" uri="/struts-tags" %>
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +20,26 @@
 	<link rel="stylesheet" type="text/css" href="common/css/personal.css" media="all">
 </head>
 <body>
+
+ <s:if test="#session.adminname==null||#rqeust.adminname.size()==0">
+  抱歉，请您先登陆》》》
+   
+   <a href="login.jsp">点我手动跳转</a>
+ <script> 
+var t=1;//设定跳转的时间 
+setInterval("refer()",1000); //启动1秒定时 
+function refer(){ 
+if(t==0){ 
+location="login.jsp"; //#设定跳转的链接地址 
+} 
+document.getElementById('show').innerHTML=""+t+"登陆页面"; // 显示倒计时 
+t--; // 计数器递减 
+
+} 
+</script> 
+<span id="show"></span> 
+  </s:if>
+  <s:else>
 <section class="layui-larry-box">
 	<div class="larry-personal">
 		<header class="larry-personal-tit">
@@ -28,13 +50,13 @@
 				<div class="layui-form-item">
 					<label class="layui-form-label">用户名</label>
 					<div class="layui-input-block">  
-						<input type="text" name="title"  autocomplete="off"  class="layui-input layui-disabled" value="admin" disabled="disabled" >
+						<input type="text" name="title"  autocomplete="off"  class="layui-input layui-disabled" value="<s:property value="#request.admininfo.name"/>" disabled="disabled" >
 					</div>
 				</div>
 				<div class="layui-form-item">
 					<label class="layui-form-label">所属角色</label>
 					<div class="layui-input-block">
-						<input type="text" name="username"  autocomplete="off" class="layui-input layui-disabled" value="超级管理员" disabled="disabled">
+						<input type="text" name="username"  autocomplete="off" class="layui-input layui-disabled" value="管理员" disabled="disabled">
 					</div>
 				</div>
 			<!-- <div class="layui-form-item">
@@ -44,27 +66,13 @@
 					</div>
 				</div> -->	
 				<div class="layui-form-item">
-					<label class="layui-form-label">手机号码</label>
+					<label class="layui-form-label">所属分组</label>
 					<div class="layui-input-block">
-						<input type="text" name="username"  autocomplete="off" class="layui-input" placeholder="输入手机号码">
-					</div>
-				</div>
-				<div class="layui-form-item">
-					<label class="layui-form-label">性别</label>
-					<div class="layui-input-block">
-						<input type="radio" name="sex" value="男" title="男" checked=""><div class="layui-unselect layui-form-radio layui-form-radioed"><i class="layui-anim layui-icon"></i><span>男</span></div>
-						<input type="radio" name="sex" value="女" title="女"><div class="layui-unselect layui-form-radio"><i class="layui-anim layui-icon"></i><span>女</span></div>
-					</div>
-				</div>
-			
-			<!-- 	<div class="layui-form-item">
-					<label class="layui-form-label">修改头像</label>
-					<div class="layui-input-block">
-						<input type="file" name="file" class="layui-upload-file">
+						<input type="text" name="username"  autocomplete="off" class="layui-input layui-disabled" value="<s:property value="#request.admininfo.group"/>" disabled="disabled">
 					</div>
 				</div>
 				
-				 -->
+			
 				 
 				<div class="layui-form-item">
 					<label class="layui-form-label">界面语言</label>
@@ -79,12 +87,18 @@
 
 				
 				
-				<div class="layui-form-item">
+		<!--  		<div class="layui-form-item">
 					<div class="layui-input-block">
 						<button class="layui-btn" lay-submit="" lay-filter="demo1">立即提交</button>
 						<button type="reset" class="layui-btn layui-btn-primary">重置</button>
 					</div>
 				</div>
+		-->
+		      <div class="layui-form-item">
+					<div class="layui-input-block">
+		     <a href="index.jsp">点我返回</a>	
+		     	</div>
+				</div>	
 			</form>
 		</div>
 	</div>
@@ -103,5 +117,7 @@
 
 	});
 </script>
+
+</s:else>
 </body>
 </html>

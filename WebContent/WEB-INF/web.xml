@@ -37,7 +37,9 @@
   </filter-mapping>
   <filter>
     <filter-name>struts2Filter</filter-name>
-    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
+    <filter-class>com.zxxz.ssh.filter.UeditorFilter</filter-class>
+    <!--  <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class> -->
+    
   </filter>
   <filter-mapping>
     <filter-name>struts2Filter</filter-name>
@@ -56,8 +58,6 @@
     <welcome-file>index.html</welcome-file>
     <welcome-file>index.htm</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>default.html</welcome-file>
-    <welcome-file>default.htm</welcome-file>
-    <welcome-file>default.jsp</welcome-file>
+   
   </welcome-file-list>
 </web-app>

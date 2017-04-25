@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache xmlns:xsi="w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="ehcache.xsd" updateCheck="false" monitoring="autodetect" dynamicConfig="true"> 
-
-
+<ehcache updateCheck="false">
 	<!-- 默认的磁盘缓存目录 -->
-    <diskStore path="G:\java\io\tmpdir1"/>
+    <diskStore path="java.io.tmpdir"/>
     
     <!-- 默认缓存策略 -->
     <defaultCache
@@ -11,8 +9,7 @@
         eternal="false"
         overflowToDisk="false"
         timeToIdleSeconds="120"
-        timeToLiveSeconds="120"
-         />
+        timeToLiveSeconds="120" />
     
     <!-- 用于整合Hibernate二级缓存：缓存领域对象 -->
     <cache name="com.hysd.domain.Customer"
@@ -53,8 +50,6 @@
     	eternal="false"
     	overflowToDisk="true"
     	timeToLiveSeconds="120" />
-        
-        
         
 </ehcache>
 

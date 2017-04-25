@@ -42,9 +42,10 @@
 		</action>
 		
 		<action name="login" method="login" class="com.zxxz.ssh.action.LoginAction">
-			<result name="success">/index.jsp</result>
+			
 			<result name="failure">/failure.jsp</result>
 			<result name="error">/login.jsp</result>
+			<result name="success" type="redirect">/index.jsp</result>
 		</action>
        
 	</package>
@@ -57,6 +58,7 @@
 		    <result name="failure">/failure.jsp</result>
 		    <result name="error">/error/error.jsp</result>
 		    <result name="input">admin_input.jsp</result>
+		    <result name="admininfo">/PersonInfo.jsp</result>
 		    <result name="success" type="redirect">/admin-listByPage.do?page=0</result>
         </action>
     </package>
@@ -69,19 +71,140 @@
 		    <result name="failure">/register.jsp</result>
 		    <result name="error">/error/error.jsp</result>
 		    <result name="input">/register.jsp</result>
+		    <result name="userinfo">/userinfo.jsp</result>
 		    <result name="success" type="redirect">/user_regist_success.jsp</result>
         </action>
         
         
         <action name="UserLogin" method="LoginAction" class="com.zxxz.ssh.action.UserLogin">
-			<result name="success">/user_index.jsp</result>
+			
 			<result name="failure">/failure.jsp</result>
 			<result name="error">/login.jsp</result>
+			
+			<result name="success" type="redirect">/movieinfo-movieIndex.do</result>
 		</action>
     </package>
     
+    
+    <package name="news"  namespace="/" extends="struts-default">
+	<action name="news-*" class="com.zxxz.ssh.action.NewsUploadAction"
+        	method="{1}">
+        	
+        	
+		    <result name="failure">/news_admin_upload.jsp</result>
+		    <result name="error">/error/error.jsp</result>
+		    <result name="show">/news_context_view.jsp</result>
+		     <result name="newsmenu">/news_menu.jsp</result>
+		    <result name="success" type="redirect">/news_save_success.jsp</result>
+		    
+        </action>
+        
+        
+      
+    </package>
  
+    
+     <package name="movieinfo"  namespace="/" extends="struts-default">
+	<action name="movieinfo-*" class="com.zxxz.ssh.action.MovieInfoUploadAction"
+        	method="{1}">
+        	
+        	
+		    <result name="failure">/movieinfo_admin_upload.jsp</result>
+		    <result name="error">/error/error.jsp</result>
+		    <result name="show">/movie_context_view.jsp</result>
+		    <result name="moviemenu">/movie_context_view.jsp</result>
+		    <result name="match">/movie_search_result.jsp</result>
+		     <result name="movieIndex">/user_index.jsp</result>
+		    <result name="success" type="redirect">/movieinfo_save_success.jsp</result>
+		    <param name="contentType">application/octet-stream;charset=ISO8859-1</param>
+   <!-- inputName 流对象名 —— 比如这里写inputStream，它就会自动去找Action中的getInputStream方法。 -->
+   <param name="inputName">inputStream</param>
+   <!-- contentDisposition 使用经过转码的文件名作为下载文件名 —— 默认格式是attachment;filename="${fileName}"，将调用该Action中的getFileName方法。 -->
+   <param name="contentDisposition">attachment;filename=${filename}</param>
+   <!-- bufferSize 下载文件的缓冲大小 -->
+   <param name="bufferSize">4096</param>
+        </action>
+        
+        
+      
+    </package>
+    
+    
+       <package name="comment"  namespace="/" extends="struts-default">
+	<action name="comment-*" class="com.zxxz.ssh.action.CommentAction"
+        	method="{1}">
+        	
+        	
+		    <result name="failure">/failure.jsp</result>
+		    <result name="error">/error/error.jsp</result>
+		    <result name="list">/comment_list.jsp</result>
+		    <result name="list1">/comment_check_list.jsp</result>
+		    <result name="check" type="redirect">/comment-ListByPage.do?page=${page}&amp;infoid=${infoid}</result>
+		     <result name="delete-s">/comment-ListCheckByPage.do?page=1</result>
+		       <result name="success" type="redirect">/comment-ListByPage.do?page=1&amp;infoid=${infoid}</result>
+		    
+		    
+        </action>
+        
+        
+      
+    </package>
+    
+     <package name="moviecomment"  namespace="/" extends="struts-default">
+	<action name="moviecomment-*" class="com.zxxz.ssh.action.MovieCommentAction"
+        	method="{1}">
+        	
+        	
+		    <result name="failure">/failure.jsp</result>
+		    <result name="error">/error/error.jsp</result>
+		    <result name="list">/moviecomment_list.jsp</result>
+		    <result name="list1">/moviecomment_check_list.jsp</result>
+		    <result name="check" type="redirect">/moviecomment-ListByPage.do?page=${page}&amp;infoid=${infoid}</result>
+		     <result name="delete-s">/moviecomment-ListCheckByPage.do?page=1</result>
+		      <result name="success" type="redirect">/moviecomment-ListByPage.do?page=1&amp;infoid=${infoid}</result>
+		    
+		    
+        </action>
+        
+        
+      
+    </package>
+    
+    
+      <package name="star"  namespace="/" extends="struts-default">
+	<action name="star-*" class="com.zxxz.ssh.action.StarAction"
+        	method="{1}">
+        	
+        	
+		    <result name="failure">/failure.jsp</result>
+		    <result name="error">/error/error.jsp</result>
+		    <result name="list">/star_list.jsp</result>
+			<result name="delete-s" type="redirect">/star-ListByPage.do?userid=${userid}&amp;class_=${class_}&amp;page=${page}</result>
+		      <result name="success">/star_save_success.jsp</result>
+		    
+		    
+        </action>
+        
+        
+      
+    </package>
    
     
+    
+     <package name="Logout"  namespace="/" extends="struts-default">
+	<action name="Logout-*" class="com.zxxz.ssh.action.LogoutAction"
+        	method="{1}">
+        	
+        	
+		    <result name="failure">/failure.jsp</result>
+		   <result name="logout" type="redirect">/movieinfo-movieIndex.do</result>
+		   <result name="adminlogout" type="redirect">/login.jsp</result>
+	<!--    <result name="success" type="redirect">/movieinfo-movieIndex.do</result>   -->	
+		    
+        </action>
+        
+        
+      
+    </package>
 </struts>
 

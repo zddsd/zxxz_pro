@@ -131,6 +131,23 @@ public class ListAdminAction extends BaseAction implements RequestAware, ModelDr
 		}
 	}
 	
+	
+	public String admininfo(){
+		
+		try {
+			Admin admininfo=adminService.findAdminById(id);
+			request.put("admininfo", admininfo);
+			
+			return "admininfo";
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(e);
+		}
+		
+		
+		return "failure";
+	}
 	private Map<String, Object> request;
 	@Override
 	public void setRequest(Map<String, Object> arg0) {

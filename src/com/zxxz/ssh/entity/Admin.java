@@ -1,13 +1,13 @@
 package com.zxxz.ssh.entity;
 
 import java.io.Serializable;
-import java.security.KeyStore.PrivateKeyEntry;
+
 
 public class Admin implements Serializable {
       
 		
-		/**
-	 * 
+	/**
+	 * @author zshuaijieAKI
 	 */
 	private static final long serialVersionUID = 1L;
 		  private int id;

@@ -159,6 +159,23 @@ ModelDriven<User>, Preparable {
     	return "list";
     }
 	
+    
+	public String userinfo()
+	{
+		try {
+			int id;
+			id=Integer.parseInt(userid);
+			
+			User userinfo=userService.findUserById(id);
+			request.put("userinfo", userinfo);
+			
+			return "userinfo";
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		return "failure";
+	}
 	public UserService getUserService() {
 		return userService;
 	}

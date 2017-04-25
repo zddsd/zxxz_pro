@@ -21,18 +21,42 @@
   </head>
   
   <body>
+  <s:if test="#session.adminname==null||#rqeust.adminname.size()==0">
+  抱歉，请您先登陆》》》
+   
+   <a href="login.jsp">点我手动跳转</a>
+ <script> 
+var t=1;//设定跳转的时间 
+setInterval("refer()",1000); //启动1秒定时 
+function refer(){ 
+if(t==0){ 
+location="login.jsp"; //#设定跳转的链接地址 
+} 
+document.getElementById('show').innerHTML=""+t+"登陆页面"; // 显示倒计时 
+t--; // 计数器递减 
+
+} 
+</script> 
+<span id="show"></span> 
+  </s:if>
+  <s:else>
 	<div class="layout-admin">
 		<header class="layout-header">
 			<span class="header-logo">电影资讯小站后台管理系统</span> 
 			<a class="header-menu-btn" href="javascript:;"><i class="icon-font">&#xe600;</i></a>
 			<ul class="header-bar">
-				<li class="header-bar-role"><a href="javascript:;">超级管理员</a></li>
+				<li class="header-bar-role">
+				<s:if test="#session.group==1">
+				超级管理员
+				</s:if>
+				
+				</li>
 				<li class="header-bar-nav">
-					<a href="javascript:;"><s:property value="#request.adminname"/><i class="icon-font" style="margin-left:5px;">&#xe60c;</i></a>
+					<a href="javascript:;"><s:property value="#session.adminname"/><i class="icon-font" style="margin-left:5px;">&#xe60c;</i></a>
 					<ul class="header-dropdown-menu">
-						<li><a href="javascript:;">个人信息</a></li>
+						<li><a href="admin-admininfo.do?id=<s:property value="#session.adminid"/>">个人信息</a></li>
 						<!-- <li><a href="javascript:;">切换账户</a></li>  -->
-						<li><a href="javascript:;" >退出</a></li>
+						<li><a href="Logout-adminlogout.do" >退出</a></li>
 					</ul>
 				</li>
 				<li class="header-bar-nav"> 
@@ -73,5 +97,6 @@
 	<script type="text/javascript" src="common/lib/jquery-1.9.0.min.js"></script>
 	<script type="text/javascript" src="common/js/sccl.js"></script>
 	<script type="text/javascript" src="common/js/sccl-util.js"></script>
+	</s:else>
   </body>
 </html>

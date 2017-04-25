@@ -7,6 +7,10 @@ public class User implements Serializable {
 	
 	
 	
+	/**
+	 * @author zshuaijieAKI
+	 */
+	private static final long serialVersionUID = 1L;
 	private int userid;
 	private String username;
 	private String password;

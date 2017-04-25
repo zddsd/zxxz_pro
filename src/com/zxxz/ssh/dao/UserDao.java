@@ -1,6 +1,6 @@
 package com.zxxz.ssh.dao;
 
-import java.util.List;
+
 import com.zxxz.ssh.entity.User;
 
 public interface UserDao {

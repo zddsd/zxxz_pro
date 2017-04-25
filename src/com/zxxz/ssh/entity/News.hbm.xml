@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 13:40:55 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zxxz.ssh.entity.News" table="NEWS">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="movieId" type="int">
+            <column name="MOVIE_ID" />
+        </property>
+        <property name="title" type="java.lang.String">
+            <column name="TITLE" />
+        </property>
+        <property name="context" type="java.lang.String">
+            <column name="CONTEXT" />
+        </property>
+        <property name="zone" type="java.lang.String">
+            <column name="ZONE" />
+        </property>
+        <property name="date" type="java.lang.String">
+            <column name="DATE" />
+        </property>
+    </class>
+</hibernate-mapping>

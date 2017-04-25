@@ -401,11 +401,15 @@ $(function(){
 					]},
 					{"id":"6","name":"评论管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
 						{"id":"7","name":"设置过滤规则","parentId":"6","url":"home3.html","icon":"","order":"1","isHeader":"0","childMenus":""},
-						{"id":"8","name":"管理评论","parentId":"6","url":"home4.html","icon":"","order":"1","isHeader":"0","childMenus":""}
+						{"id":"8","name":"管理评论","parentId":"6","url":"","icon":"","order":"1","isHeader":"0","childMenus":
+						    [{"id":"17","name":"资讯评论","parentId":"8","url":"comment-ListCheckByPage.do?page=1","icon":"","order":"1","isHeader":"0","childMenus":""},
+							{"id":"18","name":"电影评论","parentId":"8","url":"moviecomment-ListCheckByPage.do?page=1","icon":"","order":"1","isHeader":"0","childMenus":""}
+						    ]}
+						
 					]},
 					{"id":"10","name":"内容方面","parentId":"2","url":"","icon":"","order":"1","isHeader":"0","childMenus":[
-						{"id":"11","name":"资讯管理","parentId":"10","url":"","icon":"","order":"1","isHeader":"0","childMenus":""},
-						{"id":"12","name":"电影信息管理","parentId":"10","url":"","icon":"","order":"1","isHeader":"0","childMenus":""}
+						{"id":"11","name":"资讯管理","parentId":"10","url":"news_admin_upload.jsp","icon":"","order":"1","isHeader":"0","childMenus":""},
+						{"id":"12","name":"电影信息管理","parentId":"10","url":"movieinfo_admin_upload.jsp","icon":"","order":"1","isHeader":"0","childMenus":""}
 					]},
 				]},
 			/*	{"id":"2","name":"","parentId":"0","url":"","icon":"","order":"2","isHeader":"1","childMenus":[

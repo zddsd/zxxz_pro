@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-11 21:06:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zxxz.ssh.entity.MovieInfo" table="MOVIEINFO">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="assigned" />
+        </id>
+        <property name="name" type="java.lang.String">
+            <column name="NAME" />
+        </property>
+        <property name="TName" type="java.lang.String">
+            <column name="T_NAME" />
+        </property>
+        <property name="director" type="java.lang.String">
+            <column name="DIRECTOR" />
+        </property>
+        <property name="actor" type="java.lang.String">
+            <column name="ACTOR" />
+        </property>
+        <property name="zone" type="java.lang.String">
+            <column name="ZONE" />
+        </property>
+        <property name="showDate" type="java.lang.String">
+            <column name="SHOW_DATE" />
+        </property>
+        <property name="key" type="java.lang.String">
+            <column name="MOVIE_INFO_KEY" />
+        </property>
+        
+         <property name="info" type="java.lang.String">
+            <column name="INFO" />
+        </property>
+        <property name="posterUrl" type="java.lang.String">
+            <column name="POSTER_URL" />
+        </property>
+        <property name="last" type="java.lang.String">
+            <column name="LAST" />
+        </property>
+        <property name="language" type="java.lang.String">
+            <column name="LANGUAGE" />
+        </property>
+        <property name="class_" type="java.lang.String">
+            <column name="CLASS" />
+        </property>
+        <property name="rate" type="double">
+            <column name="RATE" />
+        </property>
+        <property name="status" type="java.lang.String">
+            <column name="STATUS" />
+        </property>
+    </class>
+</hibernate-mapping>

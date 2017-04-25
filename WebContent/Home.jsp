@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+     <%@ taglib prefix="s" uri="/struts-tags" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <!DOCTYPE html>
 <html lang="zh">
 <head>
@@ -66,7 +69,7 @@
 					<a href="#">
 						<h1 id="count4">0</h1>
 					</a>
-					<p>待审文章总数</p>
+					<p>待审评论总数</p>
 				</div>
 			</section>
 		</div>
@@ -206,40 +209,19 @@
                        <table class="table table-hover personal-task">
                              <tbody>
                               <tr>
-                                <td>原创</td>
+                               <s:iterator value="#request.top">
+                              
+                             
+                              <!--   <td>原创</td> --> 
                                 <td>
-                                  <a href="#" target="_blank">汪涵率众特工入侵地球 20160408</a>
+                                  <a href="news-show.do?newsid=${id}" target="_blank">${title} ${date}</a>
                                 </td>
-                                <td class="col-md-5">阅读量：1350 &nbsp;&nbsp;&nbsp;&nbsp; 2016-04-11 10:00:37</td>
+                                <td class="col-md-5"></td>
+                                 </s:iterator> 
                               </tr>
-                              <tr>
-                                <td>原创</td>
-                                <td>
-                                  <a href="#" target="_blank">汪涵率众特工入侵地球 20160408</a>
-                                </td>
-                                <td class="col-md-5">阅读量：1350 &nbsp;&nbsp;&nbsp;&nbsp; 2016-04-11 10:00:37</td>
-                              </tr>
-                              <tr>
-                                <td>原创</td>
-                                <td>
-                                  <a href="#" target="_blank">汪涵率众特工入侵地球 20160408</a>
-                                </td>
-                                <td class="col-md-5">阅读量：1350 &nbsp;&nbsp;&nbsp;&nbsp; 2016-04-11 10:00:37</td>
-                              </tr>
-                              <tr>
-                                <td>原创</td>
-                                <td>
-                                  <a href="#" target="_blank">汪涵率众特工入侵地球 20160408</a>
-                                </td>
-                                <td class="col-md-5">阅读量：1350 &nbsp;&nbsp;&nbsp;&nbsp; 2016-04-11 10:00:37</td>
-                              </tr>
-                              <tr>
-                                <td>原创</td>
-                                <td>
-                                  <a href="#" target="_blank">汪涵率众特工入侵地球 20160408</a>
-                                </td>
-                                <td class="col-md-5">阅读量：1350 &nbsp;&nbsp;&nbsp;&nbsp; 2016-04-11 10:00:37</td>
-                              </tr>
+                              
+                              
+                          
                              </tbody>
                        </table>
                   </div>

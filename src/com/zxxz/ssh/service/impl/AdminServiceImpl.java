@@ -1,29 +1,21 @@
 package com.zxxz.ssh.service.impl;
 
 import java.util.List;
-
 import javax.annotation.Resource;
-
-import org.hibernate.engine.spi.RowSelection;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import com.zxxz.ssh.dao.AdminDao;
 import com.zxxz.ssh.dao.BaseDAO;
-import com.zxxz.ssh.dao.impl.AdminDaoImpl;
 import com.zxxz.ssh.entity.Admin;
-
 import com.zxxz.ssh.service.AdminService;
 
-
-@Transactional //启用事务机制
+@Transactional // 启用事务机制
 @Service("AdminService")
 public class AdminServiceImpl implements AdminService {
-	
 
 	@Resource
 	private BaseDAO<Admin> baseDAO;
-	
+
 	@Resource
 	private AdminDao adminDao;
 
@@ -52,12 +44,11 @@ public class AdminServiceImpl implements AdminService {
 		return baseDAO.find("from Admin");
 	}
 
-	
-	//按照id删除管理员
+	// 按照id删除管理员
 	@Override
 	public void delete(Integer id) {
 		// TODO Auto-generated method stub
-		 adminDao.delete(id);
+		adminDao.delete(id);
 	}
 
 	@Override
@@ -67,9 +58,9 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 	@Override
-	public List<Admin> findListbypage(Integer page,Integer row) {
+	public List<Admin> findListbypage(Integer page, Integer row) {
 		// TODO Auto-generated method stub
-		return baseDAO.find("from Admin",new Object[]{}, page,row);
+		return baseDAO.find("from Admin", new Object[] {}, page, row);
 	}
 
 	@Override
@@ -78,5 +69,4 @@ public class AdminServiceImpl implements AdminService {
 		return baseDAO.count("select count(*) from Admin");
 	}
 
-	
 }

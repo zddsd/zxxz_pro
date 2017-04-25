@@ -6,13 +6,14 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpSession;
 
 import org.apache.struts2.interceptor.RequestAware;
+import org.apache.struts2.interceptor.SessionAware;
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.zxxz.ssh.entity.Admin;
 import com.zxxz.ssh.service.AdminService;
 @Controller
-public class LoginAction extends ActionSupport implements RequestAware {
+public class LoginAction extends ActionSupport implements RequestAware,SessionAware {
 
 	/**
 	 * @author zshuaijieAKI
@@ -24,6 +25,7 @@ public class LoginAction extends ActionSupport implements RequestAware {
 	private String adminname;
    
 	private String password;
+	HttpSession httpSession1 = null;
 	
 	public String login(){
 		
@@ -47,14 +49,20 @@ public class LoginAction extends ActionSupport implements RequestAware {
 			if(password.equals(admin.getPassword())){
 				System.out.println("用户名和密码均正确");
 				
-				HttpSession httpSession = null;
-				httpSession.setAttribute("id", id);
-				httpSession.setAttribute("isLogin",true);
-				request.put("adminname",admin.getName());
+				
+				
+			//	httpSession1.setAttribute("id", id);
+			//	httpSession1.setAttribute("isLogin",true);
+				//request.put("admin",admin);
+				session.put("group", admin.getGroup());
+				session.put("adminname", admin.getName());
+				session.put("adminid", admin.getId());
+				session.put("adminLogin", "isLogin");
 				return SUCCESS;
 			}
 			else
-			{System.out.println("用户名存在但密码不正确");
+			{
+				System.out.println("用户名存在但密码不正确");
 			
 			
 		
@@ -90,6 +98,14 @@ public class LoginAction extends ActionSupport implements RequestAware {
 	@Override
 	public void setRequest(Map<String, Object> arg0) {
 		this.request = arg0;
+	}
+    
+	Map<String, Object> session;
+	@Override
+	public void setSession(Map<String, Object> arg0) {
+		// TODO Auto-generated method stub
+	this.session=arg0;
+		
 	}
 
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-15 12:09:21 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zxxz.ssh.entity.Comment" table="COMMENT">
+        <id name="comment_id" type="int">
+            <column name="COMMENT_ID" />
+            <generator class="identity" />
+        </id>
+        <property name="infoId" type="int">
+            <column name="INFO_ID" />
+        </property>
+        <property name="context" type="java.lang.String">
+            <column name="CONTEXT" />
+        </property>
+        <property name="commTime" type="java.lang.String">
+            <column name="COMM_TIME" />
+        </property>
+        <property name="userId" type="int">
+            <column name="USERID" />
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" />
+        </property>
+    </class>
+</hibernate-mapping>

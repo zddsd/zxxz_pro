@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-18 16:08:14 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zxxz.ssh.entity.MovieComment" table="MOVIE_COMMENT">
+        <id name="id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="userid" type="int">
+            <column name="USERID" />
+        </property>
+          <property name="movieid" type="int">
+            <column name="MOVIE_ID" />
+        </property>
+        <property name="score" type="double">
+            <column name="SCORE" />
+        </property>
+        <property name="context" type="java.lang.String">
+            <column name="CONTEXT" />
+        </property>
+        <property name="commTime" type="java.lang.String">
+            <column name="COMM_TIME" />
+        </property>
+        <property name="status" type="int">
+            <column name="STATUS" />
+        </property>
+    </class>
+</hibernate-mapping>

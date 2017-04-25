@@ -43,7 +43,7 @@ h1 {
 <body style="ground-color:#fff">
 	
 	
-	<jsp:include page="frame/navigation_bar_frame.html" flush="true" />
+	<jsp:include page="frame/navigation_bar_frame.jsp" flush="true" />
     
     
     

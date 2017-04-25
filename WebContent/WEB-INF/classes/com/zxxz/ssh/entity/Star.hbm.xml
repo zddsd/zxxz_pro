@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2017-4-23 23:31:11 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.zxxz.ssh.entity.Star" table="STAR">
+        <id name="star_id" type="int">
+            <column name="ID" />
+            <generator class="identity" />
+        </id>
+        <property name="context_id" type="int">
+            <column name="CONTEXT_ID" />
+        </property>
+        <property name="user_id" type="int">
+            <column name="USERID" />
+        </property>
+        <property name="date" type="java.lang.String">
+            <column name="DATE" />
+        </property>
+        <property name="class_" type="java.lang.String" access="field">
+            <column name="CLASS" />
+        </property>
+    </class>
+</hibernate-mapping>
