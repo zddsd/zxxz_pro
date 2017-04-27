@@ -87,7 +87,7 @@ table tr td{
 				     </div>
 				    <br>
 				     <div class="col-sm-12" style="text-align:right">
-				    <a href="comment-delete.do?comment_id=${comment_id}&page=${page}">删除</a>  
+				      <a href="comment-recheck.do?comment_id=${comment_id}&page=${page}">撤销</a>&nbsp;&nbsp;<a href="comment-delete.do?comment_id=${comment_id}&page=${page}">删除</a>  
 				    </div>
 				    
 				   

@@ -87,7 +87,7 @@ table tr td{
 				     </div>
 				    <br>
 				     <div class="col-sm-12" style="text-align:right">
-				    <a href="moviecomment-delete.do?MovieComment_id=${id}&page=${page}">删除</a>  
+				    <a href="moviecomment-recheck.do?MovieComment_id=${id}&page=${page}&infoid=${infoid}">撤销</a>&nbsp;&nbsp;<a href="moviecomment-delete.do?MovieComment_id=${id}&page=${page}&infoid=${infoid}">删除</a>  
 				    </div>
 				    
 				   

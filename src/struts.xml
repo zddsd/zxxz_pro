@@ -141,6 +141,7 @@
 		    <result name="list">/comment_list.jsp</result>
 		    <result name="list1">/comment_check_list.jsp</result>
 		    <result name="check" type="redirect">/comment-ListByPage.do?page=${page}&amp;infoid=${infoid}</result>
+		     <result name="recheck" type="redirect">/comment-ListCheckByPage.do?page=${page}</result>
 		     <result name="delete-s"  type="redirect">/comment-ListCheckByPage.do?page=${page}</result>
 		       <result name="success" type="redirect">/comment-ListByPage.do?page=1&amp;infoid=${infoid}</result>
 		    
@@ -161,6 +162,7 @@
 		    <result name="list">/moviecomment_list.jsp</result>
 		    <result name="list1">/moviecomment_check_list.jsp</result>
 		    <result name="check" type="redirect">/moviecomment-ListByPage.do?page=${page}&amp;infoid=${infoid}</result>
+		     <result name="recheck" type="redirect">/moviecomment-ListCheckByPage.do?page=${page}</result>
 		     <result name="delete-s" type="redirect">/moviecomment-ListCheckByPage.do?page=${page}</result>
 		      <result name="success" type="redirect">/moviecomment-ListByPage.do?page=1&amp;infoid=${infoid}</result>
 		    

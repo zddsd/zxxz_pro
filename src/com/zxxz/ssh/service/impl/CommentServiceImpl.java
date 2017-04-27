@@ -70,6 +70,12 @@ public class CommentServiceImpl implements CommentService{
 		 commentDao.check(id);
 	}
 	@Override
+	public void recheck(Integer id) {
+		// TODO Auto-generated method stub
+		
+		 commentDao.recheck(id);
+	}
+	@Override
     public long checkCount(){
     	
     	return baseDAO.count("select count(*) from Comment e WHERE e.status=2");

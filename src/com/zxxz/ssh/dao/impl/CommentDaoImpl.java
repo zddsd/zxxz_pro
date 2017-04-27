@@ -74,5 +74,12 @@ public class CommentDaoImpl implements CommentDao {
 		}
 		return q.setFirstResult((page - 1) * rows).setMaxResults(rows).list();
 	}
+
+	@Override
+	public void recheck(Integer id) {
+		// TODO Auto-generated method stub
+		String hql="UPDATE Comment e SET e.status=1 WHERE e.comment_id=?";
+		this.getCurrentSession().createQuery(hql).setInteger(0, id).executeUpdate();
+	}
 	
 } 

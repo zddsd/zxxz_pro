@@ -13,6 +13,8 @@ public interface CommentDao {
 	
 	public Long infoByIdCount(Integer id);
 	public List<UserVoComment> find(String hql, Object[] param, Integer page, Integer rows);
+
+	public void recheck(Integer id);
 	
 
 }

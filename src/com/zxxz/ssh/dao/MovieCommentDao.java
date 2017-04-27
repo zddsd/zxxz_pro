@@ -15,4 +15,6 @@ public void delete(Integer id);
 	public List<UserVoMovieComment> find(String hql, Object[] param, Integer page, Integer rows);
 	
 	public double rateAvg(Integer id);
+
+	public void recheck(Integer id1);
 }

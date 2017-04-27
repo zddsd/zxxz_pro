@@ -241,6 +241,27 @@ public class MovieCommentAction extends ActionSupport  implements RequestAware, 
 		return "failure";
 	}
 	
+public String recheck(){
+		
+		
+		try{
+			Integer id1= Integer.valueOf(MovieComment_id);
+		//	Integer id2= Integer.valueOf(infoid);
+			System.out.println(id1);
+			MovieCommentService.recheck(id1);
+			
+			request.put("page", page);
+  	      //  request.put("infoid", id2);
+			return "recheck";
+		}
+		catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e);
+		}
+		
+		return "failure";
+	}
 	public String ListCheckByPage()
 	{
 		try{

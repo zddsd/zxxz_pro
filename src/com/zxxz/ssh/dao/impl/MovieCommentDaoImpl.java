@@ -79,5 +79,12 @@ import com.zxxz.ssh.entity.UserVoMovieComment;
 			String hql="SELECT avg(score) FROM MovieComment  e where e.movieid=?";
 			return  (double) this.getCurrentSession().createQuery(hql).setInteger(0, id).uniqueResult();
 		}
+
+		@Override
+		public void recheck(Integer id1) {
+			// TODO Auto-generated method stub
+			String hql="UPDATE MovieComment e SET e.status=1 WHERE e.id=?";
+			this.getCurrentSession().createQuery(hql).setInteger(0, id1).executeUpdate();
+		}
 		
 	} 

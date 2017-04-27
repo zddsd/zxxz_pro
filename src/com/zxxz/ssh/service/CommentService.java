@@ -19,4 +19,5 @@ public interface CommentService {
 	public long checkCount();
 	void check(Integer id);
 	public List<UserVoComment> findListbypage1(Integer id,Integer page,Integer rows);
+	void recheck(Integer id);
 }

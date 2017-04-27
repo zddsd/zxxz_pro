@@ -111,6 +111,12 @@ public class MovieCommentServiceImpl implements MovieCommentService{
 			return 0.0;
 		}
 	}
+
+	@Override
+	public void recheck(Integer id1) {
+		// TODO Auto-generated method stub
+		 MovieCommentDao.recheck(id1);
+	}
 	
 	
 	

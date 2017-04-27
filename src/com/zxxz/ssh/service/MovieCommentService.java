@@ -20,5 +20,6 @@ public interface MovieCommentService {
 	public List<UserVoMovieComment> findListbypage1(Integer id,Integer page,Integer rows);
 	
 	public double rateAvg(Integer id);
+	public void recheck(Integer id1);
 	
 }
