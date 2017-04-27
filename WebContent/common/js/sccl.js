@@ -400,7 +400,7 @@ $(function(){
 						{"id":"5","name":"用户","parentId":"3","url":"user-ListByPage.do?page=1","icon":"","order":"1","isHeader":"0","childMenus":""}
 					]},
 					{"id":"6","name":"评论管理","parentId":"1","url":"","icon":"&#xe602;","order":"1","isHeader":"0","childMenus":[
-						{"id":"7","name":"设置过滤规则","parentId":"6","url":"home3.html","icon":"","order":"1","isHeader":"0","childMenus":""},
+						{"id":"7","name":"设置过滤规则","parentId":"6","url":"setSenseWords.jsp","icon":"","order":"1","isHeader":"0","childMenus":""},
 						{"id":"8","name":"管理评论","parentId":"6","url":"","icon":"","order":"1","isHeader":"0","childMenus":
 						    [{"id":"17","name":"资讯评论","parentId":"8","url":"comment-ListCheckByPage.do?page=1","icon":"","order":"1","isHeader":"0","childMenus":""},
 							{"id":"18","name":"电影评论","parentId":"8","url":"moviecomment-ListCheckByPage.do?page=1","icon":"","order":"1","isHeader":"0","childMenus":""}

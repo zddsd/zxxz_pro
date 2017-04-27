@@ -2,20 +2,30 @@ package com.zxxz.ssh.action;
 
 
 
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+
 import javax.annotation.Resource;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.stereotype.Controller;
-
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
+import com.zxxz.ssh.DFA.WordFilter;
 import com.zxxz.ssh.entity.MovieComment;
 import com.zxxz.ssh.entity.MovieInfo;
 import com.zxxz.ssh.service.MovieCommentService;
 import com.zxxz.ssh.service.MovieInfoService;
+import com.zxxz.ssh.util.FileToText;
 
 @Controller
 public class MovieCommentAction extends ActionSupport  implements RequestAware, ModelDriven<MovieComment>,Preparable{
@@ -103,8 +113,49 @@ public class MovieCommentAction extends ActionSupport  implements RequestAware, 
 	public String save(){
 		
 		try{
+			//过滤评论内容
+//			 FileToText fileToText=new FileToText();
+//	    	 //读出敏感词
+//	    	 String strBuffer=fileToText.textToFile("D:/1.txt");
+//	    //	strBuffer.split(",");
+////	    	 
+////	    	//转换成字符串数组
+////	    	String[] a = StringUtils.split(strBuffer, ",");
+////	    	List<String> sesWords=new ArrayList<String>();
+////	    	for(String list:a)
+////	    	{
+////	    		sesWords.add(list);
+////	    	}
+////	    	String[] heightArray = (String[]) sesWords.toArray(new String[0]);
+////	    	 System.out.println(StringUtils.split(strBuffer, ",")[0]=="中国");
+////	    	System.out.println(StringUtils.split(strBuffer, ",")[0].equals("中国"));
+//			
+//			//方法一
+//			String[] keywords = new String[4];
+//	    	 keywords[0]="中国";
+//	    	 keywords[1]="越南";
+//	    	 keywords[2]="日本";
+//	    	 keywords[3]="投诉";
+	    	
+//	    	 System.out.println(keywords[0]=="中国");
+//			 System.out.println(keywords[0].equals("中国"));
+			//方法二
+			 
+//	    	String[] keywords = new String[] { "中国", "越南", "日本", "投诉" };
+//	    	 System.out.println(keywords[0]=="中国");
+//			 System.out.println(keywords[0].equals("中国"));
+
+			
+
+
+	   // 	 FilterService filterService = new FilterService(keywords);
+	    	 
+	    	 
+	    	 
+//			String str=filterService.filter(context);
+			 String str=WordFilter.doFilter(context);
 			System.out.println(userid);
-			System.out.println(userid+infoid+context);
+			System.out.println(userid+infoid+str);
 		//	Integer id1= Integer.valueOf(infoid);
 			Integer userid1=Integer.valueOf(userid);
 			Integer infoid1=Integer.valueOf(infoid);
@@ -114,7 +165,7 @@ public class MovieCommentAction extends ActionSupport  implements RequestAware, 
 			model.setMovieid(infoid1);
 			model.setUserid(userid1);
 			model.setScore(score1);
-			model.setContext(context);
+			model.setContext(str);
 			model.setCommTime((String)(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date()));
 			model.setStatus(1);
 			System.out.println("执行保存成功");

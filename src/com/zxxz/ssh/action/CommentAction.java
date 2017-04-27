@@ -2,21 +2,19 @@ package com.zxxz.ssh.action;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.List;
 import java.util.Map;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang.ObjectUtils.Null;
 import org.apache.struts2.interceptor.RequestAware;
 import org.springframework.stereotype.Controller;
 
 import com.opensymphony.xwork2.ActionSupport;
 import com.opensymphony.xwork2.ModelDriven;
 import com.opensymphony.xwork2.Preparable;
+import com.zxxz.ssh.DFA.WordFilter;
 import com.zxxz.ssh.entity.Comment;
 import com.zxxz.ssh.entity.News;
-import com.zxxz.ssh.entity.UserVoComment;
 import com.zxxz.ssh.service.CommentService;
 import com.zxxz.ssh.service.NewsService;
 
@@ -95,10 +93,13 @@ public class CommentAction extends ActionSupport  implements RequestAware, Model
 		this.context = context;
 	}
 	
-	
 	public String save(){
 		
 		try{
+//			String[] keywords = new String[] { "中国", "越南", "日本", "投诉" };
+//			FilterService filterService = new FilterService(keywords);
+//			String str=filterService.filter(context);
+		   String str=WordFilter.doFilter(context);
 			System.out.println(userid);
 			System.out.println(userid+infoid+context);
 		//	Integer id1= Integer.valueOf(infoid);
@@ -109,7 +110,7 @@ public class CommentAction extends ActionSupport  implements RequestAware, Model
 			//model.setComment_id(554433);
 			model.setInfoId(infoid1);
 			model.setUserId(userid1);
-			model.setContext(context);
+			model.setContext(str);
 			model.setCommTime((String)(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss")).format(new Date()));
 			model.setStatus(1);
 			System.out.println("执行保存成功");
