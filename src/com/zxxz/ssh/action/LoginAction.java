@@ -46,7 +46,7 @@ public class LoginAction extends ActionSupport implements RequestAware,SessionAw
 		Admin admin =adminService.findAdminById(id);
 		if (admin != null) {
 			System.out.println("根据主键ID查询记录：查到了，查询成功！");
-			if(password.equals(admin.getPassword())){
+			if(password.equals(admin.getPassword())&&"1".equals(admin.getStatus())){
 				System.out.println("用户名和密码均正确");
 				
 				

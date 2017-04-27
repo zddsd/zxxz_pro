@@ -146,7 +146,7 @@ public class CommentAction extends ActionSupport  implements RequestAware, Model
 		try{
 		  
 			Integer id1= Integer.valueOf(comment_id);
-			
+			request.put("page", page);
 		     commentService.delete(id1);
 			
 			//this.commentService.deleteComment(comment);

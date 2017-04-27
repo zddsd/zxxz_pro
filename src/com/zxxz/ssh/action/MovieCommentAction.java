@@ -201,7 +201,7 @@ public class MovieCommentAction extends ActionSupport  implements RequestAware, 
 		try{
 		  
 			Integer id1= Integer.valueOf(MovieComment_id);
-			
+			request.put("page", page);
 		     MovieCommentService.delete(id1);
 			
 			//this.MovieCommentService.deleteMovieComment(MovieComment);

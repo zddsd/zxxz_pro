@@ -59,7 +59,7 @@ public class UserLogin extends BaseAction implements RequestAware,SessionAware{
 		id=Integer.parseInt(userid);
 		
 		User user=userService.findUserById(id);
-		if(password.equals(user.getPassword()))
+		if(password.equals(user.getPassword())&&"1".equals(user.getStatus()))
 		{   
 			
 			//request.put("userid", user.getUserid());

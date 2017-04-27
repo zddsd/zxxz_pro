@@ -121,14 +121,17 @@ public class ListAdminAction extends BaseAction implements RequestAware, ModelDr
 	
 	//修改管理员信息
 	public String input(){
-		
+       if(id != 0){
+			
+			//admin = adminService.findAdminById(id);
+			
+			request.put("admin", adminService.findAdminById(id));
+		}
 		return INPUT;
 	}
 	
 	public void prepareInput(){
-		if(id != 0){
-			admin = adminService.findAdminById(id);
-		}
+		
 	}
 	
 	
